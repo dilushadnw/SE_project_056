@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Inventory Items</h2>
+    
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Item Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.item_code }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.created_at }}</td>
+            <td>
+                <a href="/update/{{ item.id }}">Update Quantity</a> | 
+                <a href="/delete/{{ item.id }}" onclick="return confirm('Meka delete karanna oneda?')">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">Database eke items mukuth naha.</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

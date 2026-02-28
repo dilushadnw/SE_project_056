@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Inventory</title>
+</head>
+<body>
+    <h1>Mini Inventory</h1>
+    
+    <nav>
+        <a href="/">Home</a> | 
+        <a href="/items">List Items</a> | 
+        <a href="/add">Add Item</a> | 
+        <a href="/search">Search</a>
+    </nav>
+    <hr>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: red;">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>
+

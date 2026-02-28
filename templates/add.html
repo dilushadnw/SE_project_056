@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Add New Item</h2>
+    
+    <form action="/add" method="POST">
+        <label>Item Code:</label><br>
+        <input type="text" name="item_code" value="ict2023056-" required><br><br>
+        
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+        
+        <label>Category:</label><br>
+        <input type="text" name="category" required><br><br>
+        
+        <label>Quantity:</label><br>
+        <input type="number" name="quantity" min="0" required><br><br>
+        
+        <button type="submit">Add Item</button>
+    </form>
+{% endblock %}
