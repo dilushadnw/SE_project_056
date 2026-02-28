@@ -24,12 +24,12 @@
             <td>{{ item.created_at }}</td>
             <td>
                 <a href="/update/{{ item.id }}">Update Quantity</a> | 
-                <a href="/delete/{{ item.id }}" onclick="return confirm('Meka delete karanna oneda?')">Delete</a>
+                <a href="/delete/{{ item.id }}" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
             </td>
         </tr>
         {% else %}
         <tr>
-            <td colspan="7">Database eke items mukuth naha.</td>
+            <td colspan="7">No items found in the database.</td>
         </tr>
         {% endfor %}
     </table>

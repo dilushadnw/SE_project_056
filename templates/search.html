@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Search Items</h2>
+    
+    <form action="/search" method="GET">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search by name or category..." required>
+        <button type="submit">Search</button>
+    </form>
+    
+    <br>
+    
+    {% if query %}
+        <h3>Search Results for "{{ query }}"</h3>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Item Code</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+            </tr>
+            
+            {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.item_code }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No items found matching your search.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+
+
